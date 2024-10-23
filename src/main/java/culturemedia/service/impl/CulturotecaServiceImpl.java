@@ -1,8 +1,8 @@
-package culturemedia.model.impl;
+package culturemedia.service.impl;
 
 import culturemedia.model.Reproduccion;
 import culturemedia.model.Video;
-import culturemedia.repository.CulturotecaService;
+import culturemedia.service.CulturotecaService;
 import culturemedia.repository.ReproduccionRepository;
 import culturemedia.repository.VideoRepository;
 
