@@ -1,12 +1,14 @@
 package culturemedia.service;
 
-import culturemedia.exception.DuracionNotValidException;
+import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Reproduccion;
 import culturemedia.model.Video;
 import java.util.List;
 
+
 public interface CulturotecaService {
-    List<Video> listarTodos();
+    List<Video> listarTodos()throws VideoNotFoundException;
+
     Video agregar(Video video);
-    Video agregar (Reproduccion reproduccion) throws DuracionNotValidException;
+    Reproduccion agregar (Reproduccion reproduccion);
 }
