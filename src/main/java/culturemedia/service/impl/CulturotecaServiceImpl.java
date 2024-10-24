@@ -1,5 +1,6 @@
 package culturemedia.service.impl;
 
+import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Reproduccion;
 import culturemedia.model.Video;
 import culturemedia.service.CulturotecaService;
@@ -19,17 +20,26 @@ public class CulturotecaServiceImpl implements CulturotecaService{
 
 
     @Override
-    public List<Video> listarTodos() {
-        return List.of();
+    public List<Video> listarTodos() throws VideoNotFoundException {
+        List<Video> videos = videoRepository.listarTodos();
+        if (videos.isEmpty()) {
+            throw new VideoNotFoundException();
+        } else {
+            return videos;
+        }
     }
 
     @Override
     public Video agregar(Video video) {
-        return null;
+        videoRepository.agregar(video);
+        return video;
     }
 
+
     @Override
-    public Video agregar(Reproduccion reproduccion){
-        return null;
+    public Reproduccion agregar(Reproduccion view) {
+        reproduccionRepository.agregar(view);
+        return view;
     }
+
 }
