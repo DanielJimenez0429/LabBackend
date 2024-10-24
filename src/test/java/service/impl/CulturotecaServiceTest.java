@@ -26,7 +26,8 @@ public class CulturotecaServiceTest {
 
 
     List<Video> listVideos() {
-        List<Video> videos = List.of(new Video("01", "Título 1", "----", 4.5),
+        List<Video> videos = List.of(
+                new Video("01", "Título 1", "----", 4.5),
                 new Video("02", "Título 2", "----", 5.5),
                 new Video("03", "Título 3", "----", 4.4),
                 new Video("04", "Título 4", "----", 3.5),
@@ -52,5 +53,32 @@ public class CulturotecaServiceTest {
         assertThrows(VideoNotFoundException.class, () -> {
             culturotecaService.listarTodos();
         });
+    }
+    @Test
+    void when_FindByTitle_all_videos_should_be_returned_successfully() throws VideoNotFoundException {
+        listVideos();
+        List<Video> videos = culturotecaService.encontrarPorTitulo("Título");
+        assertEquals(4, videos.size());
+    }
+
+    @Test
+    void when_FindByTitle_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
+        listVideos();
+        assertThrows(VideoNotFoundException.class, () -> {
+            culturotecaService.encontrarPorTitulo("Título Inexistente");
+        });
+    }
+
+    @Test
+    void when_FindByDuration_all_videos_should_be_returned_successfully() throws VideoNotFoundException {
+        listVideos();
+        List<Video> videos = culturotecaService.encontrarPorDuracion(5.5);
+        assertEquals(1, videos.size());
+    }
+
+    @Test
+    void when_FindByDuration_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
+        listVideos();
+        assertThrows(VideoNotFoundException.class, () -> {culturotecaService.encontrarPorDuracion(10.2);});
     }
 }
