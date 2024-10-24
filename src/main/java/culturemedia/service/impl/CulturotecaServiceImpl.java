@@ -37,9 +37,9 @@ public class CulturotecaServiceImpl implements CulturotecaService{
 
 
     @Override
-    public Reproduccion agregar(Reproduccion view) {
-        reproduccionRepository.agregar(view);
-        return view;
+    public Reproduccion agregar(Reproduccion reproduccion) {
+        reproduccionRepository.agregar(reproduccion);
+        return reproduccion;
     }
 
 }
