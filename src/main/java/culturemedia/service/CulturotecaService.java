@@ -13,5 +13,7 @@ public interface CulturotecaService {
     Reproduccion agregar (Reproduccion reproduccion);
 
     List<Video> encontrarPorTitulo(String titulo) throws VideoNotFoundException;
-    List<Video> encontrarPorDuracion(Double duracion) throws VideoNotFoundException;
+    List<Video> encontrarPorDuracion(Double duracionDesde, Double duracionHasta) throws VideoNotFoundException;
+
+;
 }
