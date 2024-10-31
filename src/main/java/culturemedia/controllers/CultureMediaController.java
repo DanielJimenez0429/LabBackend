@@ -4,15 +4,15 @@ import java.util.*;
 
 import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Video;
-import culturemedia.service.impl.CulturotecaServiceImpl;
+import culturemedia.service.CulturotecaService;
 
 public class CultureMediaController {
 
-	private final CulturotecaServiceImpl culturotecaService;
+	private final CulturotecaService culturotecaService;
 
 
-	public CultureMediaController(CulturotecaServiceImpl cultureMediaService) {
-		this.culturotecaService = cultureMediaService;
+	public CultureMediaController(CulturotecaService culturotecaService) {
+		this.culturotecaService = culturotecaService;
 	}
 
 

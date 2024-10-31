@@ -32,44 +32,34 @@ public class CulturotecaServiceImpl implements CulturotecaService{
 
     @Override
     public Video agregar(Video video) {
-        videoRepository.agregar(video);
+        this.videoRepository.agregar(video);
         return video;
     }
 
-
     @Override
     public Reproduccion agregar(Reproduccion reproduccion) {
-        reproduccionRepository.agregar(reproduccion);
+        this.reproduccionRepository.agregar(reproduccion);
         return reproduccion;
     }
+
+
     @Override
     public List<Video> encontrarPorTitulo(String titulo) throws VideoNotFoundException {
-        List<Video> videos = videoRepository.listarTodos();
-        List<Video> videosEncontrados = new ArrayList<>();
-        for (Video video : videos) {
-            if (video.titulo().toLowerCase().contains(titulo.toLowerCase())) {
-                videosEncontrados.add(video);
-            }
-        }
+        List<Video> videosEncontrados = this.videoRepository.buscar(titulo);
         if (videosEncontrados.isEmpty()) {
             throw new VideoNotFoundException(titulo);
         }
         return videosEncontrados;
     }
     @Override
-    public List<Video> encontrarPorDuracion(Double duracion) throws VideoNotFoundException {
-        List<Video> videos = videoRepository.listarTodos();
-        List<Video> videosGuardados = new ArrayList<>();
-        for (Video video : videos) {
-            if (Math.abs(video.duracion() - duracion) < 0.001) { // Comparación con tolerancia
-                videosGuardados.add(video);
-            }
-        }
+    public List<Video> encontrarPorDuracion(Double duracionDesde, Double duracionHasta) throws VideoNotFoundException {
+        List<Video> videosGuardados = this.videoRepository.buscar(duracionDesde, duracionHasta);
+
         if (videosGuardados.isEmpty()) {
             throw new VideoNotFoundException();
         }
         return videosGuardados;
-    }
 
+    }
 
 }
