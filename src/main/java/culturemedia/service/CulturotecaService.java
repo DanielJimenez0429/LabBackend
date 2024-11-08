@@ -9,7 +9,7 @@ import java.util.List;
 public interface CulturotecaService {
     List<Video> listarTodos()throws VideoNotFoundException;
 
-    Video agregar(Video video);
+    Video agregar(Video video)throws VideoNotFoundException;
     Reproduccion agregar (Reproduccion reproduccion);
 
     List<Video> encontrarPorTitulo(String titulo) throws VideoNotFoundException;

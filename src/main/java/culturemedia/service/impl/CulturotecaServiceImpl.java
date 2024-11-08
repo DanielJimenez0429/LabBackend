@@ -6,19 +6,19 @@ import culturemedia.model.Video;
 import culturemedia.service.CulturotecaService;
 import culturemedia.repository.ReproduccionRepository;
 import culturemedia.repository.VideoRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CulturotecaServiceImpl implements CulturotecaService{
-    public VideoRepository videoRepository;
-    public ReproduccionRepository reproduccionRepository;
+    private final VideoRepository videoRepository;
+    private final ReproduccionRepository reproduccionRepository;
 
     public CulturotecaServiceImpl(VideoRepository videoRepository, ReproduccionRepository reproduccionRepository) {
         this.videoRepository = videoRepository;
         this.reproduccionRepository = reproduccionRepository;
     }
-
 
     @Override
     public List<Video> listarTodos() throws VideoNotFoundException {

@@ -12,6 +12,7 @@ import culturemedia.repository.impl.VideoRepositoryImpl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 class VideoRepositoryTest {
 
 	private VideoRepository videoRepository;
@@ -58,6 +59,7 @@ class VideoRepositoryTest {
 		List<Video> videos = videoRepository.buscar("No existe");
 		assertTrue(videos.isEmpty());
 	}
+
 
 	@Test
 	void when_FindByDuration_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
