@@ -1,0 +1,15 @@
+GET http://localhost:80/videos
+Accept: application/json
+
+###
+
+POST http://localhost:8080/videos
+Accept: application/json
+Content-Type: application/json
+
+{
+  "codigo":"001",
+  "titulo":"video 1",
+  "descripcion":"vacio",
+  "duracion":50.0
+}
